@@ -55,7 +55,7 @@ Create `server/.env` from `server/.env.example`.
 PORT=5000
 MONGO_URI=mongodb://127.0.0.1:27017/community_forum_chat
 JWT_SECRET=change_this_secret
-CLIENT_URL=http://localhost:5173
+CLIENT_URL=http://localhost:5174
 ```
 
 ## How to Run in VS Code
@@ -88,15 +88,28 @@ npm run seed
 npm run dev
 ```
 
-Open:
-- Frontend: http://localhost:5173
+- Frontend: http://localhost:5174
 - Backend API: http://localhost:5000
 
 ## Demo Login
 ```text
 Email: demo@student.com
 Password: password123
+
+Additional test user (created during development):
+Email: testuser2@example.com
+Password: password123
 ```
+
+## Continuous Integration (GitHub Actions)
+
+This repository includes a CI workflow that installs dependencies and builds the client to validate the project on push.
+
+Workflow path: `.github/workflows/ci.yml`
+
+What it runs:
+- Installs server and client dependencies with `npm ci --prefix server` and `npm ci --prefix client`.
+- Builds the client with `npm run build --prefix client`.
 
 ## API Endpoints
 | Method | Endpoint | Description |
